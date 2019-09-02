@@ -1,0 +1,37 @@
+<!-- Component for user/account registration. Each input is bound to its respective form control and is contained within the registrationForm group instance -->
+<div id="registration-container" class="mx-auto">
+  <h3 class="text-center">Register for a Loyalty Account</h3>
+
+  <!-- On submit, the form will post data to the RegistrationController to make the API call for SKIDATA Loyalty -->
+  <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="username">Username</label>
+      <!-- Form inputs are checked to be valid upon submission. For invalid fields, visual cues are added via the "is-invalid" Bootstrap class
+           and help text will appear below the input to prompt the user to correct it -->
+      <input type="text" class="form-control" id="username" placeholder="Create a username" formControlName="username"
+             [ngClass]="{ 'is-invalid': submitted && f.username.errors }">
+      <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+        <div *ngIf="f.username.errors.required">Username is required</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" id="email" placeholder="Email address" formControlName="email"
+             [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+      <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+        <div *ngIf="f.email.errors.required">Email address is required</div>
+        <div *ngIf="f.email.errors.email">Please enter a valid email address</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" id="password" placeholder="Password" formControlName="password"
+             [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+      <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+        <div *ngIf="f.password.errors.required">Password is required</div>
+        <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-info" >Submit</button>
+  </form>
+</div>

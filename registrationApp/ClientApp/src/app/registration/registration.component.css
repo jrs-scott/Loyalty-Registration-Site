@@ -1,0 +1,7 @@
+/* Keep the registration form a reasonable size on larger screens */
+@media (min-width: 768px) {
+  #registration-container {
+    max-width: 540px;
+  }
+}
+
