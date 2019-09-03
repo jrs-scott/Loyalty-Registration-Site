@@ -1,7 +1,7 @@
 # Loyalty-Registration-Site
 Registration site to create user accounts for SKIDATA loyalty. Built using .NET Core 2.2 and Angular 6. 
 
-To run the application in Visual Studio:
+To run the application in Visual Studio 2019:
 1. Install .NET core SDK 2.2, Node.js and Git
 2. Clone the repository via Git
 3. Run the development server with IIS in Visual Studio
